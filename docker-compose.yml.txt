@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  tutorial-generator:
+    build: .
+    volumes:
+      - ./config.json:/app/config.json
+      - ./assets:/app/assets
+      - ./output:/app/output
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+    command: "${TOPIC} --difficulty ${DIFFICULTY:-intermediate} --config /app/config.json"
+
+  # Optional service for video processing with GPU acceleration
+  # Uncomment if you have NVIDIA GPU support
+  # tutorial-generator-gpu:
+  #   build: .
+  #   volumes:
+  #     - ./config.json:/app/config.json
+  #     - ./assets:/app/assets
+  #     - ./output:/app/output
+  #   environment:
+  #     - OPENAI_API_KEY=${OPENAI_API_KEY}
+  #     - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+  #   command: "${TOPIC} --difficulty ${DIFFICULTY:-intermediate} --config /app/config.json"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]

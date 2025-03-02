@@ -1,0 +1,68 @@
+{
+  "openai": {
+    "api_key": "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",
+    "model": "o1-mini"
+  },
+  "tts": {
+    "provider": "gtts",
+    "providers": {
+      "elevenlabs": {
+        "api_key": "sk_08f66720e1b01c736390641297e392c56ab17f27b0c06790",
+        "voice_id": "cgSgspJ2msm6clMCkdW9"
+      },
+      "gtts": {
+        "language": "en",
+        "slow": false
+      },
+      "pyttsx3": {
+        "voice": "default",
+        "rate": 150,
+        "volume": 1.0
+      }
+    }
+  },
+  "slides": {
+    "provider": "internal",
+    "template": "modern-blue",
+    "font_size": {
+      "title": 48,
+      "content": 36
+    }
+  },
+  "code_animations": {
+    "provider": "internal",
+    "theme": "monokai",
+    "font_size": 30,
+    "animation_speed": 1.5
+  },
+  "video": {
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "fps": 24,
+    "codec": "libx264"
+  },
+  "music": {
+    "enabled": true,
+    "file": "assets/background_music.mp3",
+    "volume": 0.1
+  },
+  "sponsorship": {
+    "enabled": false,
+    "name": "CodeMaster Pro",
+    "script": "This tutorial is brought to you by CodeMaster Pro, the best IDE for Python development. Use promo code PYTHONTUTORIAL for 20% off your first year. CodeMaster Pro features intelligent auto-completion, real-time error checking, and seamless Git integration. Try it free for 30 days at codemasterpro.com.",
+    "visual": "assets/sponsor_logo.png",
+    "position": "third",
+    "duration": 60
+  },
+  "youtube": {
+    "ad_breaks": true,
+    "auto_upload": false,
+    "metadata": {
+      "category": "Education",
+      "tags": ["Python", "Programming", "Tutorial", "Coding"],
+      "description_template": "Learn Python {topic} in this comprehensive tutorial.\n\nTimestamps:\n{timestamps}\n\nSponsored by {sponsor_name}\n\nFollow us on Twitter: @PythonTutorials\nWebsite: pythontutorials.com"
+    }
+  }
+}

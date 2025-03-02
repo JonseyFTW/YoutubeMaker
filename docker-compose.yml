@@ -1,0 +1,18 @@
+services: 
+  tutorial-generator-gpu:
+    build: .
+    volumes:
+      - ./config.json:/app/config.json
+      - ./assets:/app/assets
+      - ./output:/app/output
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+    command: "${TOPIC:-Python decorators} --difficulty ${DIFFICULTY:-intermediate} --tts-provider ${TTS_PROVIDER:-gtts} --config /app/config.json"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

@@ -1,0 +1,14 @@
+# Dockerfile for listing OpenAI models
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Copy requirements and script
+COPY requirements.txt .
+COPY list_models.py .
+
+# Install dependencies
+RUN pip install --no-cache-dir openai==0.28.0
+
+# Command to run the script
+ENTRYPOINT ["python", "list_models.py"]
